@@ -17,4 +17,8 @@ services:
       - /app/node_modules
       - .:/app
     command: ["npm", "run", "test"]
+networks:
+  default:
+    external:
+      name: localdev
 
