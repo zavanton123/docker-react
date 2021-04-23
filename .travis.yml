@@ -8,17 +8,20 @@ before_install:
 script: 
   - docker run -e CI=true zavanton/docker-react npm run test
 
-# deploy:
-  # provider: elasticbeanstalk
-  # region: "us-east-2"
-  # name: "docker"
-  # env: "Docker-env"
-  # bucket_name: "elasticbeanstalk-us-east-2-565447122202"
-  # bucket_path: "docker"
-  # on:
-  #   branch: master
-  #
-#
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  name: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-565447122202"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY" 
+
+
 
 
 
